@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 const radioSrcs = [
   {
     name: "Sheger 102.1",
@@ -20,29 +18,16 @@ const radioSrcs = [
 ];
 
 export default function Home() {
-  const [radioSrc, setRadioSrc] = useState(radioSrcs[0]);
-
-  useEffect(() => {
-    //setRadioSrc(radioSrcs[0]);
-  });
   return (
     <main className="flex flex-col gap-4 ">
-      <div className="card flex flex-col items-center">
-        <h2 className="card-title">{radioSrc.name}</h2>
-        <audio src={radioSrc.src} controls autoPlay="true"></audio>
-      </div>
       <div>
-        <ul className="flex flex-col items-center">
+        <ul className="flex flex-col items-center gap-3">
           {radioSrcs.map((src) => (
-            <li key={src.name}>
-              <button
-                className="btn"
-                onClick={() => {
-                  setRadioSrc(src);
-                }}
-              >
-                {src.name}
-              </button>
+            <li key={src.name} className="bg-neutral rounded-md">
+              <div className="">
+                <div className="text-center">{src.name}</div>
+                <audio src={src.src} controls></audio>
+              </div>
             </li>
           ))}
         </ul>

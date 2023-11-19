@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar bg-base-100">
-          <h2 className="btn btn-ghost text-xl">Ethiopia Radios</h2>
+        <div className="navbar bg-base-100 flex justify-center">
+          <h2 className="text-xl">Ethiopia Radios</h2>
         </div>
         {children}
       </body>
