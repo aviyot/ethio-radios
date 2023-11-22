@@ -26,9 +26,12 @@ export default function RootLayout({ children }) {
           {children}
           <ul className="flex flex-wrap gap-2 m-4 justify-center">
             {radioSrcs.map((radio) => (
-              <li key={radio.id} className="border-2 rounded-lg p-2">
-                <Link href={`/${radio.id}`}>
-                  <span> {radio.name} </span>
+              <li
+                key={radio.id}
+                className="border-2 rounded-lg p-2 hover:border-primary active:bg-primary"
+              >
+                <Link className="" href={`/${radio.id}`}>
+                  {radio.name}
                 </Link>
               </li>
             ))}
