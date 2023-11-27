@@ -17,18 +17,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar justify-center border-b-2">
-          <h2 className="text-xl uppercase text-center text-center">
-            Ethiopia Radios
-          </h2>
+        <div className="navbar border-b min-h-0">
+          <h1 className="text-xl uppercase">Ethiopia Radios</h1>
         </div>
         <div className="flex flex-col gap-8">
           {children}
-          <ul className="flex flex-wrap gap-2 m-4 justify-center">
+          <ul className="flex flex-wrap gap-2 m-2 justify-center">
             {radioSrcs.map((radio) => (
               <li
                 key={radio.id}
-                className="border-2 rounded-lg p-2 hover:border-primary active:bg-primary"
+                className="border rounded-lg p-2 hover:border-primary active:bg-primary"
               >
                 <Link className="" href={`/${radio.id}`}>
                   {radio.name}

@@ -24,7 +24,12 @@ export default function Page({ params }) {
     <>
       <div className="flex justify-center mt-4">
         <div className="flex flex-col">
-          <div className="text-center text-lg">{radio.name}</div>
+          <div className="flex justify-center gap-3">
+            <span className="text-lg">{radio.name}</span>
+            <a className="rounded border p-1" href={radio.contact}>
+              info
+            </a>
+          </div>
           <audio src={radio.src} controls autoPlay></audio>
         </div>
       </div>
