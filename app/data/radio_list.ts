@@ -19,7 +19,8 @@ export const radioSrcs: Radio[] = [
     id: "bisra_101.1",
     name: "Bisra 101.1FM",
     src: "http://stream.zeno.fm/zvaru17saxquv",
-    contact: "https://www.bisrat101.com",
+    contact: "https://bisratfm.com/",
+    icon: "http://bisratfm.com/wp-content/uploads/2014/09/BisratFM-logo_w-e1410450552828.png",
   },
   {
     id: "ahadu_radio",
@@ -33,6 +34,7 @@ export const radioSrcs: Radio[] = [
     name: "Awash",
     src: "https://stream.zeno.fm/655zm6w4vc9uv",
     contact: "https://www.facebook.com/Awash.FM.Official/",
+    icon: "https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-1/301192583_439853738163282_2555501203566788885_n.png?stp=dst-png_s200x200&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Cun1NI9IhZgQ7kNvwHKi8Oj&_nc_oc=AdpSVeHoLuKYuzScZX_XX7T8ESwJhkMY3K3N1K5U-7OPdFiQCDL4roBxYtSVuyiunQI&_nc_zt=24&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=JClKqNziR6c5uC5jfgRrJg&_nc_ss=7a32e&oh=00_AfxSqRZcrpGQx2lDKGBXwKRm6ireC6zuQgIrtABo6QSXiQ&oe=69C814D7",
   },
   {
     id: "team_radio",
@@ -51,11 +53,13 @@ export const radioSrcs: Radio[] = [
     name: "Mirt Internet Radio",
     src: "https://stream.zeno.fm/akmuznguawzuv",
     contact: "https://twitter.com/mirtmirtRank",
+    icon: "https://pbs.twimg.com/profile_images/947561301869514752/bjPyasFC_400x400.jpg",
   },
   {
     id: "tirta_radio",
     name: "Tirta Radio",
     src: "https://i.klikhost.com/8660/stream/;",
     contact: "https://www.facebook.com/profile.php?id=100064110330297",
+    icon: "https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-1/556061111_1213881680758832_1581884414428723713_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=zwdznXwN758Q7kNvwEWijpw&_nc_oc=AdpUIsWVlxxIwXXRTNlaZE5WN5zhdJGAsnDuU5cLpQTbSYhKXfm3l1bznjcfpg-Kvh0&_nc_zt=24&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=aLWjiGJQXECHDQoIMaZ5SQ&_nc_ss=7a32e&oh=00_AfwL80otbbGA2B1R8GWAZXvQgxvQTstBbcVVMH4QF_2Ghg&oe=69C8114A",
   },
 ];
