@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { getStationIconCandidates } from "../lib/favicon";
+import StationIcon from "./StationIcon";
 
 interface AudioPlayerProps {
   name: string;
@@ -17,8 +17,6 @@ export default function AudioPlayer({
   contact,
   icon,
 }: AudioPlayerProps) {
-  const iconCandidates = getStationIconCandidates(icon, contact);
-  const primaryIconUrl = iconCandidates[0] ?? "";
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.8);
@@ -110,31 +108,13 @@ export default function AudioPlayer({
             Now Playing
           </p>
           <div className="mt-2 flex items-center justify-center gap-2">
-            {primaryIconUrl ? (
-              <img
-                src={primaryIconUrl}
-                alt=""
-                width={40}
-                height={40}
-                data-icon-candidates={iconCandidates.join("|")}
-                data-icon-index="0"
-                className="h-10 w-10 rounded-md bg-white/90 p-1"
-                onError={(event) => {
-                  const candidates =
-                    event.currentTarget.dataset.iconCandidates?.split("|") ?? [];
-                  const currentIndex = Number(event.currentTarget.dataset.iconIndex ?? "0");
-                  const nextIndex = currentIndex + 1;
-
-                  if (nextIndex < candidates.length) {
-                    event.currentTarget.dataset.iconIndex = String(nextIndex);
-                    event.currentTarget.src = candidates[nextIndex];
-                    return;
-                  }
-
-                  event.currentTarget.style.display = "none";
-                }}
-              />
-            ) : null}
+            <StationIcon
+              contact={contact}
+              icon={icon}
+              size={40}
+              loading="eager"
+              className="h-10 w-10 rounded-md bg-white/90 p-1"
+            />
             <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               {name}
             </h2>

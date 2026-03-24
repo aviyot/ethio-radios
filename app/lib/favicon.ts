@@ -14,14 +14,19 @@ export function getFaviconUrl(siteUrl: string): string {
 
 function getOrigin(siteUrl: string): string {
   try {
-    const normalizedUrl = siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`;
+    const normalizedUrl = siteUrl.startsWith("http")
+      ? siteUrl
+      : `https://${siteUrl}`;
     return new URL(normalizedUrl).origin;
   } catch {
     return "";
   }
 }
 
-export function getStationIconCandidates(iconPath: string | undefined, siteUrl: string): string[] {
+export function getStationIconCandidates(
+  iconPath: string | undefined,
+  siteUrl: string,
+): string[] {
   const origin = getOrigin(siteUrl);
   const candidates = new Set<string>();
 
@@ -51,9 +56,13 @@ export function getStationIconCandidates(iconPath: string | undefined, siteUrl: 
   }
 
   try {
-    const normalizedUrl = siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`;
+    const normalizedUrl = siteUrl.startsWith("http")
+      ? siteUrl
+      : `https://${siteUrl}`;
     const { hostname } = new URL(normalizedUrl);
-    candidates.add(`https://www.google.com/s2/favicons?domain=${hostname}&sz=64`);
+    candidates.add(
+      `https://www.google.com/s2/favicons?domain=${hostname}&sz=64`,
+    );
   } catch {
     // no-op
   }
