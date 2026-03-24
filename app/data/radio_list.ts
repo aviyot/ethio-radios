@@ -13,7 +13,7 @@ export const radioSrcs: Radio[] = [
     name: "Ethio FM 107.8",
     src: "https://stream.zeno.fm/b8skbyqeqeruv",
     contact: "https://ethiofm107.com",
-
+    icon: "/wp-content/uploads/2020/02/rect835.png",
   },
   {
     id: "bisra_101.1",
