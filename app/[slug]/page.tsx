@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import AudioPlayer from "../components/AudioPlayer";
 import { radioSrcs } from "../data/radio_list";
 import { PageParams } from "../types";
 
@@ -35,19 +36,5 @@ export default async function Page({ params }: PageParams) {
     notFound();
   }
 
-  return (
-    <>
-      <div className="flex justify-center mt-4">
-        <div className="flex flex-col">
-          <div className="flex justify-center gap-3">
-            <span className="text-lg">{radio.name}</span>
-            <a className="rounded border p-1" href={radio.contact}>
-              info
-            </a>
-          </div>
-          <audio src={radio.src} controls autoPlay></audio>
-        </div>
-      </div>
-    </>
-  );
+  return <AudioPlayer name={radio.name} src={radio.src} contact={radio.contact} />;
 }

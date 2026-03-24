@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import Link from "next/link";
+import RadioGrid from "./components/RadioGrid";
 import { radioSrcs } from "./data/radio_list";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,23 +21,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar border-b min-h-0">
-          <h1 className="text-xl uppercase">Ethiopia Radios</h1>
-        </div>
-        <div className="flex flex-col gap-8">
-          {children}
-          <ul className="flex flex-wrap gap-2 m-2 justify-center">
-            {radioSrcs.map((radio) => (
-              <li
-                key={radio.id}
-                className="border rounded-lg p-2 hover:border-primary active:bg-primary"
-              >
-                <Link className="" href={`/${radio.id}`}>
-                  {radio.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="app-shell">
+          <header className="sticky top-0 z-30 border-b border-white/10 bg-black/35 px-4 py-4 backdrop-blur-md sm:px-6">
+            <h1 className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-danger)] bg-clip-text text-center text-xl font-semibold uppercase tracking-[0.14em] text-transparent sm:text-3xl sm:tracking-[0.2em]">
+              Ethiopia Radios
+            </h1>
+          </header>
+
+          <main className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 py-6 sm:gap-10 sm:px-6 sm:py-10">
+            {children}
+            <RadioGrid radios={radioSrcs} />
+          </main>
         </div>
       </body>
     </html>
