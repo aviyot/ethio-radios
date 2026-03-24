@@ -1,6 +1,6 @@
-import { radioSrcs } from "../data/radio_list";
+import { notFound } from "next/navigation";
 
-import { Metadata, ResolvingMetadata } from "next";
+import { radioSrcs } from "../data/radio_list";
 
 export async function generateStaticParams() {
   return radioSrcs.map((radio) => ({
@@ -9,16 +9,27 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const radio = radioSrcs.find((val) => val.id == params.slug);
+  const { slug } = await params;
+  const radio = radioSrcs.find((val) => val.id === slug);
+
+  if (!radio) {
+    return {
+      title: "Not Found",
+    };
+  }
 
   return {
     title: radio.name,
   };
 }
 
-export default function Page({ params }) {
-  const { slug } = params;
-  const radio = radioSrcs.find((val) => val.id == slug);
+export default async function Page({ params }) {
+  const { slug } = await params;
+  const radio = radioSrcs.find((val) => val.id === slug);
+
+  if (!radio) {
+    notFound();
+  }
 
   return (
     <>
