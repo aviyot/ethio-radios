@@ -6,12 +6,14 @@ export const radioSrcs: Radio[] = [
     name: "Sheger 102.1",
     src: "https://stream.zenolive.com/y91n1vtbaw5tv",
     contact: "https://www.shegerfm.com",
+    icon: "/radio-icons/sheger.png",
   },
   {
     id: "ethio_107.8",
     name: "Ethio FM 107.8",
     src: "https://stream.zeno.fm/b8skbyqeqeruv",
     contact: "https://ethiofm107.com",
+
   },
   {
     id: "bisra_101.1",
@@ -24,6 +26,7 @@ export const radioSrcs: Radio[] = [
     name: "Ahadu Radio",
     src: "https://stream.zeno.fm/txxpndf1wwzuv",
     contact: "https://ahaduradio.com/",
+    icon: "https://www.ahaduradio.com/_astro/logo.DO08vsH_.svg",
   },
   {
     id: "awash",

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { getStationIconCandidates } from "../lib/favicon";
 import type { Radio } from "../types";
 
 interface RadioGridProps {
@@ -21,6 +22,8 @@ export default function RadioGrid({ radios }: RadioGridProps) {
         {radios.map((radio) => {
           const href = `/${radio.id}`;
           const isActive = pathname === href;
+          const iconCandidates = getStationIconCandidates(radio.icon, radio.contact);
+          const primaryIconUrl = iconCandidates[0] ?? "";
 
           return (
             <li key={radio.id}>
@@ -30,8 +33,34 @@ export default function RadioGrid({ radios }: RadioGridProps) {
                   isActive ? "radio-card-active" : ""
                 }`}
               >
-                <span className="block rounded-2xl bg-black/55 px-3 py-3.5 text-center text-sm font-medium text-white sm:text-base">
-                  {radio.name}
+                <span className="flex items-center justify-center gap-2 rounded-2xl bg-black/55 px-3 py-3.5 text-center text-sm font-medium text-white sm:text-base">
+                  {primaryIconUrl ? (
+                    <img
+                      src={primaryIconUrl}
+                      alt=""
+                      width={18}
+                      height={18}
+                      loading="lazy"
+                      data-icon-candidates={iconCandidates.join("|")}
+                      data-icon-index="0"
+                      className="h-5 w-5 rounded-sm bg-white/90 p-0.5"
+                      onError={(event) => {
+                        const candidates =
+                          event.currentTarget.dataset.iconCandidates?.split("|") ?? [];
+                        const currentIndex = Number(event.currentTarget.dataset.iconIndex ?? "0");
+                        const nextIndex = currentIndex + 1;
+
+                        if (nextIndex < candidates.length) {
+                          event.currentTarget.dataset.iconIndex = String(nextIndex);
+                          event.currentTarget.src = candidates[nextIndex];
+                          return;
+                        }
+
+                        event.currentTarget.style.display = "none";
+                      }}
+                    />
+                  ) : null}
+                  <span>{radio.name}</span>
                 </span>
               </Link>
             </li>

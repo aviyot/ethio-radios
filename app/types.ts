@@ -3,6 +3,7 @@ export interface Radio {
   name: string;
   src: string;
   contact: string;
+  icon?: string;
 }
 
 export interface PageParams {

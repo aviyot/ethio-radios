@@ -2,13 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { getStationIconCandidates } from "../lib/favicon";
+
 interface AudioPlayerProps {
   name: string;
   src: string;
   contact: string;
+  icon?: string;
 }
 
-export default function AudioPlayer({ name, src, contact }: AudioPlayerProps) {
+export default function AudioPlayer({
+  name,
+  src,
+  contact,
+  icon,
+}: AudioPlayerProps) {
+  const iconCandidates = getStationIconCandidates(icon, contact);
+  const primaryIconUrl = iconCandidates[0] ?? "";
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.8);
@@ -99,9 +109,36 @@ export default function AudioPlayer({ name, src, contact }: AudioPlayerProps) {
           <p className="text-xs uppercase tracking-widest text-white/60">
             Now Playing
           </p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-            {name}
-          </h2>
+          <div className="mt-2 flex items-center justify-center gap-2">
+            {primaryIconUrl ? (
+              <img
+                src={primaryIconUrl}
+                alt=""
+                width={40}
+                height={40}
+                data-icon-candidates={iconCandidates.join("|")}
+                data-icon-index="0"
+                className="h-10 w-10 rounded-md bg-white/90 p-1"
+                onError={(event) => {
+                  const candidates =
+                    event.currentTarget.dataset.iconCandidates?.split("|") ?? [];
+                  const currentIndex = Number(event.currentTarget.dataset.iconIndex ?? "0");
+                  const nextIndex = currentIndex + 1;
+
+                  if (nextIndex < candidates.length) {
+                    event.currentTarget.dataset.iconIndex = String(nextIndex);
+                    event.currentTarget.src = candidates[nextIndex];
+                    return;
+                  }
+
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            ) : null}
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              {name}
+            </h2>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">

@@ -37,6 +37,11 @@ export default async function Page({ params }: PageParams) {
   }
 
   return (
-    <AudioPlayer name={radio.name} src={radio.src} contact={radio.contact} />
+    <AudioPlayer
+      name={radio.name}
+      src={radio.src}
+      contact={radio.contact}
+      icon={radio.icon}
+    />
   );
 }
