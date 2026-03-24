@@ -80,7 +80,7 @@ export default function AudioPlayer({ name, src, contact }: AudioPlayerProps) {
 
   return (
     <section
-      className={`w-full max-w-2xl rounded-3xl border border-white/15 bg-[var(--color-surface)]/80 p-5 sm:p-8 shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-300 ${
+      className={`w-full max-w-2xl rounded-3xl border border-white/20 bg-surface/80 p-5 sm:p-8 shadow-2xl shadow-black/40 backdrop-blur-sm transition-all duration-300 ${
         isTrackChanging ? "player-enter" : ""
       }`}
     >
@@ -96,8 +96,12 @@ export default function AudioPlayer({ name, src, contact }: AudioPlayerProps) {
         </div>
 
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/60">Now Playing</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{name}</h2>
+          <p className="text-xs uppercase tracking-widest text-white/60">
+            Now Playing
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            {name}
+          </h2>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
@@ -121,14 +125,17 @@ export default function AudioPlayer({ name, src, contact }: AudioPlayerProps) {
             href={contact}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-[var(--color-accent)]/70 bg-[var(--color-accent)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-accent)] transition hover:-translate-y-0.5 hover:bg-[var(--color-accent)]/20"
+            className="rounded-full border border-accent/70 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-accent transition hover:-translate-y-0.5 hover:bg-accent/20"
           >
             Info
           </a>
         </div>
 
         <div className="w-full max-w-sm">
-          <label htmlFor="volume" className="mb-2 block text-xs uppercase tracking-[0.22em] text-white/60">
+          <label
+            htmlFor="volume"
+            className="mb-2 block text-xs uppercase tracking-widest text-white/60"
+          >
             Volume
           </label>
           <input

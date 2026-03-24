@@ -36,5 +36,7 @@ export default async function Page({ params }: PageParams) {
     notFound();
   }
 
-  return <AudioPlayer name={radio.name} src={radio.src} contact={radio.contact} />;
+  return (
+    <AudioPlayer name={radio.name} src={radio.src} contact={radio.contact} />
+  );
 }

@@ -1,114 +1,129 @@
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #078930;
-	--color-accent: #fcdd09;
-	--color-danger: #da121a;
-	--color-bg: #0d1117;
-	--color-surface: #111927;
+  --color-primary: #078930;
+  --color-accent: #fcdd09;
+  --color-danger: #da121a;
+  --color-bg: #0d1117;
+  --color-surface: #111927;
 }
 
 :root {
-	color-scheme: dark;
+  color-scheme: dark;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	min-height: 100vh;
-	background:
-		radial-gradient(circle at 12% 18%, rgba(7, 137, 48, 0.2), transparent 40%),
-		radial-gradient(circle at 80% 10%, rgba(252, 221, 9, 0.16), transparent 33%),
-		radial-gradient(circle at 70% 85%, rgba(218, 18, 26, 0.2), transparent 36%),
-		var(--color-bg);
-	color: #f4f7fb;
-	text-rendering: optimizeLegibility;
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(7, 137, 48, 0.2), transparent 40%),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(252, 221, 9, 0.16),
+      transparent 33%
+    ),
+    radial-gradient(circle at 70% 85%, rgba(218, 18, 26, 0.2), transparent 36%),
+    var(--color-bg);
+  color: #f4f7fb;
+  text-rendering: optimizeLegibility;
 }
 
 .app-shell {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
 .radio-card {
-	background: linear-gradient(120deg, var(--color-primary), var(--color-accent), var(--color-danger));
+  background: linear-gradient(
+    120deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-danger)
+  );
 }
 
 .radio-card-active {
-	box-shadow: 0 0 0 1px rgba(252, 221, 9, 0.4), 0 14px 28px rgba(252, 221, 9, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(252, 221, 9, 0.4),
+    0 14px 28px rgba(252, 221, 9, 0.2);
 }
 
 .player-enter {
-	animation: stationSwap 0.38s ease-out;
+  animation: stationSwap 0.38s ease-out;
 }
 
 .player-core {
-	position: relative;
-	display: grid;
-	place-items: center;
-	width: 112px;
-	height: 112px;
-	border-radius: 999px;
-	background: linear-gradient(160deg, var(--color-primary), var(--color-danger));
-	color: #fff;
-	box-shadow: 0 10px 30px rgba(218, 18, 26, 0.35);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border-radius: 999px;
+  background: linear-gradient(
+    160deg,
+    var(--color-primary),
+    var(--color-danger)
+  );
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(218, 18, 26, 0.35);
 }
 
 .player-core::before,
 .player-core::after {
-	content: "";
-	position: absolute;
-	inset: -8px;
-	border-radius: 999px;
-	border: 1px solid rgba(255, 255, 255, 0.14);
-	opacity: 0;
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
 }
 
 .player-core.is-playing::before {
-	animation: pulseRing 1.8s ease-out infinite;
+  animation: pulseRing 1.8s ease-out infinite;
 }
 
 .player-core.is-playing::after {
-	animation: pulseRing 1.8s ease-out 0.6s infinite;
+  animation: pulseRing 1.8s ease-out 0.6s infinite;
 }
 
 .volume-slider {
-	width: 100%;
-	accent-color: var(--color-accent);
+  width: 100%;
+  accent-color: var(--color-accent);
 }
 
 @keyframes pulseRing {
-	0% {
-		transform: scale(1);
-		opacity: 0.7;
-	}
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 
-	100% {
-		transform: scale(1.35);
-		opacity: 0;
-	}
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
 }
 
 @keyframes stationSwap {
-	0% {
-		opacity: 0;
-		transform: translateY(8px) scale(0.985);
-	}
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
 
-	100% {
-		opacity: 1;
-		transform: translateY(0) scale(1);
-	}
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0ms !important;
-	}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+  }
 }

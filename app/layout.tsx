@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={inter.className}>
         <div className="app-shell">
           <header className="sticky top-0 z-30 border-b border-white/10 bg-black/35 px-4 py-4 backdrop-blur-md sm:px-6">
-            <h1 className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-danger)] bg-clip-text text-center text-xl font-semibold uppercase tracking-[0.14em] text-transparent sm:text-3xl sm:tracking-[0.2em]">
+            <h1 className="bg-linear-to-r from-primary via-accent to-danger bg-clip-text text-center text-xl font-semibold uppercase tracking-widest text-transparent sm:text-3xl sm:tracking-widest">
               Ethiopia Radios
             </h1>
           </header>
