@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -6,14 +8,16 @@ import { radioSrcs } from "./data/radio_list";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ethiopia Radio",
   description: "Ethiopia Live Radion Station",
 };
 
-const RadioLinks = ["sheger_102.1", "ethio_107.8", "bisra_101.1", "addis_97.1"];
+interface RootLayoutProps {
+  children: ReactNode;
+}
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -1,4 +1,6 @@
-export const radioSrcs = [
+import { Radio } from "../types";
+
+export const radioSrcs: Radio[] = [
   {
     id: "sheger_102.1",
     name: "Sheger 102.1",
@@ -47,11 +49,6 @@ export const radioSrcs = [
     src: "https://stream.zeno.fm/akmuznguawzuv",
     contact: "https://twitter.com/mirtmirtRank",
   },
-  /*   {
-    id: "shs_thalks",
-    name: "SHS Thalks",
-    src: "https://stream.zeno.fm/qhraan7n5f0uv",
-  }, */
   {
     id: "tirta_radio",
     name: "Tirta Radio",

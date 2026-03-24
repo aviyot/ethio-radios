@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { radioSrcs } from "../data/radio_list";
+import { PageParams } from "../types";
 
 export async function generateStaticParams() {
   return radioSrcs.map((radio) => ({
@@ -8,7 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: PageParams): Promise<Metadata> {
   const { slug } = await params;
   const radio = radioSrcs.find((val) => val.id === slug);
 
@@ -23,7 +27,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: PageParams) {
   const { slug } = await params;
   const radio = radioSrcs.find((val) => val.id === slug);
 
