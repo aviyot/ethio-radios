@@ -33,8 +33,8 @@ export const radioSrcs: Radio[] = [
     id: "awash",
     name: "Awash",
     src: "https://stream.zeno.fm/655zm6w4vc9uv",
-    contact: "https://www.facebook.com/Awash.FM.Official/",
-    icon: "https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-1/301192583_439853738163282_2555501203566788885_n.png?stp=dst-png_s200x200&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Cun1NI9IhZgQ7kNvwHKi8Oj&_nc_oc=AdpSVeHoLuKYuzScZX_XX7T8ESwJhkMY3K3N1K5U-7OPdFiQCDL4roBxYtSVuyiunQI&_nc_zt=24&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=JClKqNziR6c5uC5jfgRrJg&_nc_ss=7a32e&oh=00_AfxSqRZcrpGQx2lDKGBXwKRm6ireC6zuQgIrtABo6QSXiQ&oe=69C814D7",
+    contact: "https://awashfm.com/",
+    icon:"https://awashfm.com/wp-content/uploads/2025/05/AwashFM-Logo-Horizontal-269x121.png",
   },
   {
     id: "team_radio",
